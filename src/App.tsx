@@ -11,10 +11,11 @@ function App() {
   const modal = useModalStore(state=>state.modal)
   const setModal = useModalStore(state=>state.setModal)
   const todos = useTodoStore(state=>state.todos)
-  
+  const resetTodos = useTodoStore(state=>state.resetTodo)
 
   const handleModal = ()=>{
     setModal()
+    console.log('click')
   }
 
   return (
@@ -28,18 +29,22 @@ function App() {
         <button className=' text-slate-100  rounded-lg mr-5' onClick={handleModal}>
           <IoMdAddCircle  className='text-[50px]'/>
         </button>
-        <button className=' text-slate-100  rounded-lg mr-5'>
+        <button className=' text-slate-100  rounded-lg mr-5' onClick={()=>resetTodos()}>
           <IoReloadCircle  className='text-[50px]'/>
         </button>
       </div>
-      <div className="relative w-full container mx-auto h-[calc(100vh-90px)]">
+      <div className="relative w-full container mx-auto h-[calc(100vh-90px)] ">
         {
           modal && (
-            <div className='absolute top-0 left-0 bg-slate-700 w-full h-full opacity-95'>
-              <div className='flex w-full h-full justify-center items-center'>
-                <TodoForms />
+            <>
+              <div className='absolute top-0 left-0 w-full h-full opacity-95'>
+                <div className='relative flex w-full h-full justify-center items-center'>
+                  <div className='absolute top-0 left-0 w-full h-full bg-slate-700' onClick={handleModal}>
+                  </div>
+                  <TodoForms />
+                </div>
               </div>
-            </div>
+            </>
           )
         }
         {

@@ -15,6 +15,8 @@ export const TodoList = () => {
     }
   }, [activeId])
 
+
+
   return (
     <div className="w-full bg-blue-600 h-[calc(100vh-110px)]">
       <h2>Listado de Actividades</h2>

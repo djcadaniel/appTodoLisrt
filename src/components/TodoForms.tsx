@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form"
 import Error from "./Error"
 import { DraftTodo } from "../types"
-import { useTodoStore } from "../store"
+import { useModalStore, useTodoStore } from "../store"
 import { useEffect } from "react"
 
 export const TodoForms = () => {
 
   // const {addTodos} = useTodoStore()
+  const setModal = useModalStore(state=>state.setModal)
   const addTodos = useTodoStore(state => state.addTodos)
   const activeId = useTodoStore(state => state.activeId)
   const todos = useTodoStore(state => state.todos)
@@ -17,8 +18,8 @@ export const TodoForms = () => {
   useEffect(()=>{
     if(activeId){
       const activeTodo = todos.filter(todo=> todo.id === activeId)[0]
-      setValue('name', activeTodo.name)
-      setValue('priority', activeTodo.priority)
+      setValue('name', activeTodo?.name)
+      setValue('priority', activeTodo?.priority)
     }
   },[activeId])
 
@@ -27,17 +28,32 @@ export const TodoForms = () => {
       updateTodo(data)
     }else{
       addTodos(data)
+      console.log(todos)
     }
     reset()
    }
 
+   const handleModal = ()=>{
+    setModal()
+   }
+
   return (
     <form 
-      className='w-2/5 bg-[#67C86C] p-10 flex flex-col gap-5 rounded-md'
+      className='relative w-2/5 bg-[#67C86C] p-10 flex flex-col gap-5 rounded-md'
       noValidate
       onSubmit={handleSubmit(registerTodo)}
     >
-      <h1 className='text-center text-2xl text-[#38374D] font-semibold'>Nueva Actividad</h1>
+      <h1 className='text-center text-2xl text-[#38374D] font-semibold'>
+        {
+          activeId ? 'Actualizar Actividad' : 'Nueva Actividad'
+        }
+      </h1>
+      <button 
+        className="absolute -top-5 -right-5 p-5 rounded-[100%] h-[50px] w-[50px] bg-red-500 hover:bg-red-300 transition-all ease-in-out flex justify-center items-center text-white font-bold"
+        onClick={handleModal}
+      >
+        X
+      </button>
       <div className='flex flex-col gap-3'>
         {/* <label htmlFor="Nombre">Nombre</label> */}
         <input 
@@ -75,7 +91,7 @@ export const TodoForms = () => {
       <input 
         type="submit" 
         className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
-        value='Guardar paciente'
+        value={activeId ? 'Actualizar' : 'Guardar'}
       />
     </form>
   )
