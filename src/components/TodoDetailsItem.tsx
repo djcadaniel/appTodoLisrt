@@ -1,13 +1,13 @@
 type TodoDetailsItem = {
-  label: string
-  data: string
+  name: string,
+  priority: string
 }
 
-export const TodoDetailsItem = ({label, data}: TodoDetailsItem) => {
+export const TodoDetailsItem = ({name, priority}: TodoDetailsItem) => {
   return (
-    <div>
-      {label}: {''}
-      <span className="font-normal normal-case">{data}</span>
+    <div className="">
+      <span className="font-normal normal-case break-words">{name}</span>
+      <span className="font-normal normal-case break-words">{priority}</span>
     </div>
   )
 }

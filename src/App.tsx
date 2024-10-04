@@ -19,8 +19,8 @@ function App() {
   }
 
   return (
-    <>
-      <div className='w-full container mx-auto p-5 bg-[#38374D] flex justify-between items-center'>
+    <div className='bg-slate-900'>
+      <div className='w-full container mx-auto p-5 bg-slate-900 flex justify-between items-center'>
         <span className=' text-slate-100 text-2xl font-bold px-5 py-2 rounded-lg'>Cantidad:</span>
         <h1 className='w-full font-black text-4xl text-center text-[#67C86C]'>
           Lista de {''}
@@ -39,7 +39,7 @@ function App() {
             <>
               <div className='absolute top-0 left-0 w-full h-full opacity-95'>
                 <div className='relative flex w-full h-full justify-center items-center'>
-                  <div className='absolute top-0 left-0 w-full h-full bg-slate-700' onClick={handleModal}>
+                  <div className='absolute top-0 left-0 w-full h-full bg-slate-900' onClick={handleModal}>
                   </div>
                   <TodoForms />
                 </div>
@@ -51,7 +51,7 @@ function App() {
           (todos.length > 0) ? (
             <TodoList />
           ) : (
-            <div className='w-full bg-[#67C86C] h-full flex justify-center items-center'>
+            <div className='w-full bg-slate-900 h-full flex justify-center items-center'>
               <figure>
                 <img src={emptyTodo} alt="" />
               </figure>
@@ -59,7 +59,7 @@ function App() {
           )
         }
       </div>
-    </>
+    </div>
   )
 }
 

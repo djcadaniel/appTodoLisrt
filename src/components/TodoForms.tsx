@@ -28,7 +28,7 @@ export const TodoForms = () => {
       updateTodo(data)
     }else{
       addTodos(data)
-      console.log(todos)
+      console.log(todos)  
     }
     reset()
    }
