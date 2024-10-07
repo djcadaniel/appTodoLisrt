@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useTodoStore } from "../store"
 import { TodoDetails } from "./TodoDetails"
 
@@ -6,15 +5,6 @@ import { TodoDetails } from "./TodoDetails"
 export const TodoList = () => {
 
   const todos = useTodoStore(state=>state.todos)
-  const activeId = useTodoStore(state=>state.activeId)
-
-  useEffect(() => {
-    if(activeId){
-      const activeTodo = todos.filter(todo=> todo.id === activeId)[0]
-      console.log(activeTodo)
-    }
-  }, [activeId])
-
 
 
   return (

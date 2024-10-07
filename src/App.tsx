@@ -15,7 +15,6 @@ function App() {
 
   const handleModal = ()=>{
     setModal()
-    console.log('click')
   }
 
   return (
