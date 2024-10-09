@@ -24,14 +24,31 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
     setModal()
   }
 
+  const colorPriority = (nivel)=>{
+
+    let color;
+
+    if(nivel === 'Urgente'){
+      color = '#ea5959'
+    }else if(nivel === 'Importante'){
+      color = '#2a78dd'
+    }else if (nivel === 'No Importante'){
+      color = '#dba12b'
+    }
+    
+    return color;
+  }
+
+
+
   return (
     <>
       <div className=" p-5">
         <span className="normal-case break-words text-slate-700 font-bold text-lg">{todo.name}</span><br />
       </div>
-      <div className="w-full flex justify-between text-green-950 px-5">
+      <div className="w-full flex justify-between text-white px-5]">
         <div className="w-[70%]">
-          <p className="normal-case break-words bg-[#31e3b4] inline-block px-3 py-1 rounded-xl text-sm">
+          <p className={`normal-case break-words bg-[${colorPriority(todo.priority)}] inline-block px-3 py-1 rounded-xl text-sm`}>
             {todo.priority}
           </p>
         </div>
