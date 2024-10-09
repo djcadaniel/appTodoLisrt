@@ -20,16 +20,16 @@ function App() {
   return (
     <div className='container__todo'>
       <div className='w-full container mx-auto p-5 bg-slate-900 flex justify-between items-center'>
-        <span className=' text-slate-100 text-2xl font-bold px-5 py-2 rounded-lg'>Cantidad:</span>
-        <h1 className='w-full font-black text-4xl text-center text-[#31E3B4]'>
+        <span className=' text-slate-100 text-lg md:text-2xl font-bold px-5 py-2 rounded-lg'>Cantidad:</span>
+        <h1 className='w-full font-black text-2xl md:text-4xl text-center text-[#31E3B4]'>
           Lista de {''}
           <span className="text-white">Actividades</span>
         </h1>
         <button className=' text-slate-100  rounded-lg mr-5' onClick={handleModal}>
-          <IoMdAddCircle  className='text-[50px]'/>
+          <IoMdAddCircle  className='text-[35px] md:text-[50px]'/>
         </button>
         <button className=' text-slate-100  rounded-lg mr-5' onClick={()=>resetTodos()}>
-          <IoReloadCircle  className='text-[50px]'/>
+          <IoReloadCircle  className='text-[35px] md:text-[50px]'/>
         </button>
       </div>
       <div className="relative w-full container mx-auto h-[calc(100vh-90px)]">

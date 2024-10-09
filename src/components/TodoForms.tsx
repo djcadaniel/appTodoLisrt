@@ -40,7 +40,7 @@ export const TodoForms = () => {
 
   return (
     <form 
-      className='relative w-2/5 bg-[#0D1424] p-10 flex flex-col gap-5 rounded-md z-50'
+      className='relative w-[80%] md:w-2/5 bg-[#0D1424] p-5 md:p-10 flex flex-col gap-3 md:gap-5 rounded-md z-50'
       noValidate
       onSubmit={handleSubmit(registerTodo)}
     >
