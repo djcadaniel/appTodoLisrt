@@ -24,7 +24,7 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
     setModal()
   }
 
-  const colorPriority = (nivel)=>{
+  const colorPriority = (nivel:Todo['priority'])=>{
 
     let color;
 
