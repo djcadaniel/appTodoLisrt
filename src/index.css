@@ -7,3 +7,22 @@
   color: red;
   overflow-wrap: break-word;
 }
+.container__todo{
+  background-image: url('/img/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.glass-effect{
+  backdrop-filter: blur(0.7rem);
+}
+.glass-effect-active{
+  background: rgba(7, 193, 171, 0.3);
+}
+.glass-effect-deactive{
+  background: rgba(211, 239, 232, 0.1);
+}
+.glass-effect-container{
+  background: rgba(24, 26, 25, 0.5);
+}

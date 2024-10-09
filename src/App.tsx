@@ -18,10 +18,10 @@ function App() {
   }
 
   return (
-    <div className='bg-slate-900'>
+    <div className='container__todo'>
       <div className='w-full container mx-auto p-5 bg-slate-900 flex justify-between items-center'>
         <span className=' text-slate-100 text-2xl font-bold px-5 py-2 rounded-lg'>Cantidad:</span>
-        <h1 className='w-full font-black text-4xl text-center text-[#67C86C]'>
+        <h1 className='w-full font-black text-4xl text-center text-[#31E3B4]'>
           Lista de {''}
           <span className="text-white">Actividades</span>
         </h1>
@@ -32,15 +32,15 @@ function App() {
           <IoReloadCircle  className='text-[50px]'/>
         </button>
       </div>
-      <div className="relative w-full container mx-auto h-[calc(100vh-90px)] ">
+      <div className="relative w-full container mx-auto h-[calc(100vh-90px)]">
         {
           modal && (
             <>
-              <div className='absolute top-0 left-0 w-full h-full opacity-95'>
+              <div className='absolute top-0 left-0 w-full h-full opacity-95 z-50'>
                 <div className='relative flex w-full h-full justify-center items-center'>
-                  <div className='absolute top-0 left-0 w-full h-full bg-slate-900' onClick={handleModal}>
+                  <div className='absolute top-0 left-0 w-full h-full glass-effect-container' onClick={handleModal}>
                   </div>
-                  <TodoForms />
+                  <TodoForms/>
                 </div>
               </div>
             </>
@@ -50,7 +50,7 @@ function App() {
           (todos.length > 0) ? (
             <TodoList />
           ) : (
-            <div className='w-full bg-slate-900 h-full flex justify-center items-center'>
+            <div className='w-full h-full flex justify-center items-center'>
               <figure>
                 <img src={emptyTodo} alt="" />
               </figure>

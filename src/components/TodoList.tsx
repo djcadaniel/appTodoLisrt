@@ -8,7 +8,7 @@ export const TodoList = () => {
 
 
   return (
-    <div className="w-full bg-slate-900 h-[calc(100vh-110px)] px-10 py-20">
+    <div className="w-full h-[calc(100vh-110px)] px-10 py-20">
       <div className="grid grid-cols-3 gap-5">
         {
           todos.map(todo=>(

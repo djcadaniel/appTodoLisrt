@@ -27,11 +27,11 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
   return (
     <>
       <div className=" p-5">
-        <span className="font-normal normal-case break-words">{todo.name}</span><br />
+        <span className="normal-case break-words text-slate-700 font-bold text-lg">{todo.name}</span><br />
       </div>
-      <div className="w-full flex justify-between text-white px-5">
+      <div className="w-full flex justify-between text-green-950 px-5">
         <div className="w-[70%]">
-          <p className="font-normal normal-case break-words">
+          <p className="normal-case break-words bg-[#31e3b4] inline-block px-3 py-1 rounded-xl text-sm">
             {todo.priority}
           </p>
         </div>
