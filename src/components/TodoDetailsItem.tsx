@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md"
 import { FaCheckSquare, FaEdit } from "react-icons/fa"
 import { useModalStore, useTodoStore } from "../store"
 import { Todo } from "../types"
+import { useEffect } from "react"
 
 type TodoDetailsItem = {
   todo: Todo
@@ -15,15 +16,7 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
   const deleteTodo = useTodoStore(state => state.deleteTodo)
   const getTodoById = useTodoStore(state => state.getTodoById)
   const completeTodo = useTodoStore(state => state.completeTodo)
-
-  const handleComplete = (todo: Todo) => {
-    completeTodo(todo.id)
-  }
-  const handleEdit = (todo: Todo) => {
-    getTodoById(todo.id)
-    setModal()
-  }
-
+  
   const colorPriority = (nivel:Todo['priority'])=>{
 
     let color;
@@ -39,6 +32,15 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
     return color;
   }
 
+  const handleComplete = (todo: Todo) => {
+    completeTodo(todo.id)
+  }
+  const handleEdit = (todo: Todo) => {
+    getTodoById(todo.id)
+    setModal()
+  }
+
+
 
 
   return (
@@ -48,7 +50,10 @@ export const TodoDetailsItem = ({todo}: TodoDetailsItem) => {
       </div>
       <div className="w-full flex justify-between text-white px-5]">
         <div className="w-[70%]">
-          <p className={`normal-case break-words bg-[${colorPriority(todo.priority)}] inline-block px-3 py-1 rounded-xl text-sm`}>
+          <p 
+            className={`normal-case break-words inline-block px-3 py-1 rounded-xl text-sm`}
+            style={{ backgroundColor: colorPriority(todo.priority) }}
+          >
             {todo.priority}
           </p>
         </div>
