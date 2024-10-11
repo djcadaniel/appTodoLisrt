@@ -2,7 +2,6 @@ import { MdDelete } from "react-icons/md"
 import { FaCheckSquare, FaEdit } from "react-icons/fa"
 import { useModalStore, useTodoStore } from "../store"
 import { Todo } from "../types"
-import { useEffect } from "react"
 
 type TodoDetailsItem = {
   todo: Todo
